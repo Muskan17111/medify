@@ -1,0 +1,21 @@
+.tab{
+    display: flex;
+    justify-content: flex-end;
+}
+.tabs {
+    color: #102851;
+  }
+  
+ 
+  .tabs .MuiTabs-flexContainer {
+    flex-direction: row;
+  }
+  
+  @media (max-width: 900px) {
+    .tabs .MuiTabs-flexContainer {
+      flex-direction: column;
+    }
+    .tabs .MuiTab-root {
+      color: white;
+    }
+  }
