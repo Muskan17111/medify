@@ -5,13 +5,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import "./searchdoctor.css";
 import MenuIcon from './iconcard';
 
+
 const SearchHospital = () => {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const [selectedState, setSelectedState] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
-  const [text, setText] = useState('');
-
+ 
   useEffect(() => {
     const fetchStates = async () => {
       try {
@@ -42,13 +42,7 @@ const SearchHospital = () => {
     fetchCities();
   }, [selectedState]);
 
-  useEffect(() => {
-    if (selectedCity && selectedState) {
-      setText(`You selected ${selectedCity}, ${selectedState}`);
-    } else {
-      setText('');
-    }
-  }, [selectedCity, selectedState]);
+ 
 
   const handleChangeState = (event) => {
     setSelectedState(event.target.value);

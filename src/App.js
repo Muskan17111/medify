@@ -1,14 +1,15 @@
 import './App.css';
-import Navbar from './component/navbar/navbar';
-import SearchHospital from './component/findcenter/searchdoctor';
+import Home from './home/home';
+
+
 
 
 function App() {
   return (
     <div className='App'>
-   <Navbar/>
-   <SearchHospital/>
-
+ <Home/>
+  
+  
    </div>
   );
 }

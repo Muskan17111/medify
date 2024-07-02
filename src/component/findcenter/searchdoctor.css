@@ -40,18 +40,3 @@
     margin-top: 50px;
 }
 
-
-.searchcard{
-    width: 1170px;
-    height: 429px;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    top: 530px;
-    left: 135px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #F0F0F0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius:15px ;
-}

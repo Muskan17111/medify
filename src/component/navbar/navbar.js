@@ -3,7 +3,7 @@ import logo from '../../assests/logo.svg';
 import { Box, Typography, IconButton, useMediaQuery, Stack, Container, Drawer} from '@mui/material';
 import BasicTabs from './tab'; 
 import CustomButton from '../button/button'; 
-import HeroSection from '../herosection/herosection'; 
+
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import './navbar.css'; 
@@ -71,7 +71,6 @@ export default function Navbar() {
         </Box>
       </Drawer>
 
-      <HeroSection /> 
     </Box>
   );
 }

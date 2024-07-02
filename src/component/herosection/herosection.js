@@ -29,6 +29,7 @@ const Hero = () => {
       <Box className="heroimage" mb={4}>
         <img src={heroImage} alt="Hero" />
       </Box>
+      
     </Box>
   );
 };
