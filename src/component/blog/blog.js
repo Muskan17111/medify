@@ -7,9 +7,10 @@ function BlogNews() {
   return (
     <Box py={6}>
       <Container>
-        <Box textAlign="center" mb={4}>
-          <img src={blognews} alt="Blog News" />
-        </Box>
+      <Box
+        component={'img'}
+        src={blognews}
+        width={{ xs: 1, md: "50%" }}/>
         <Grid container spacing={4} justifyContent="center">
           <Grid item xs={12} sm={6} md={4}>
             <img src={blog} alt="Blog 1" style={{ width: '100%' }} />

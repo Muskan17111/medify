@@ -25,9 +25,11 @@ const Hero = () => {
         </Box>
       </Box>
       
-      <Box className="heroimage" mb={4}   width={{ xs: 1, md: "50%" }}>
-        <img src={heroImage} alt="Hero" />
-      </Box>
+        <Box
+                        component={'img'}
+                        src={heroImage}
+                        width={{ xs: 1, md: "50%" }}
+                    />
       
     </Box>
   );
