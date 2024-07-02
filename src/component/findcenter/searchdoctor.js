@@ -131,6 +131,7 @@ const SearchHospital = () => {
     <div>
     <MenuIcon/>
     </div>
+
     </Box>
   );
 };

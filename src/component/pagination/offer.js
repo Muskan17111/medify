@@ -7,7 +7,7 @@ import offer2 from '../../assests/offer2.svg';
 
 export default function Offers() {
     return (
-        <Box py={6}>
+        <Box py={6} bgcolor={"white"}>
             <Container maxWidth='xl'>
                 <Swiper
                     slidesPerView={1}
@@ -54,3 +54,12 @@ export default function Offers() {
         </Box>
     )
 }
+
+
+
+
+
+
+
+
+
