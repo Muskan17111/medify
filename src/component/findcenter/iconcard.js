@@ -15,7 +15,8 @@ function MenuIcon() {
    
         You may be looking for
 </div>
-    <Grid item xs={4} md={2.4} className="wrap">
+    <Grid className="wrap"   container
+        columnSpacing={{ xs: 1, md: 2 }}>
     <img src={doctors} alt="doctors Logo" />
     <img src={labs} alt="labs Logo" />
     <img src={hospitals} alt="hospitals logo" />

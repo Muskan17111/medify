@@ -9,12 +9,11 @@ const Hero = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
  return (
     <Box     
+    direction={{ xs: 'column', md: "row" }} spacing={6} alignItems="center" pt={2}
      className="hero" 
     display="flex" 
     flexDirection={isMobile ? 'column' : 'row'} 
-    justifyContent="space-around" 
-    alignItems="center" 
-    p={2}>
+    justifyContent="space-around" >
       <Box className="imgtext" display="flex" flexDirection="column" alignItems="start" textAlign="start" mb={4}>
       <Typography variant='h3' component='h1'>Skip the travel! Find Online</Typography>
        <Typography variant='h1' component='h1' mb={1}>Medical <span style={{ color: '#2AA7FF' }}>Centers</span></Typography>
@@ -26,7 +25,7 @@ const Hero = () => {
         </Box>
       </Box>
       
-      <Box className="heroimage" mb={4}>
+      <Box className="heroimage" mb={4}   width={{ xs: 1, md: "50%" }}>
         <img src={heroImage} alt="Hero" />
       </Box>
       

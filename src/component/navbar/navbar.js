@@ -18,11 +18,14 @@ export default function Navbar() {
 
   return (
     <Box>
-      <div className='header'>
-        <Typography component="h4">
-          The health and well-being of our patients and their health care team will always be our priority, so we follow the best practices for cleanliness.
+     <Box p={1} bgcolor="primary.main">
+        <Typography fontSize={14} textAlign="center" color="#fff">
+          The health and well-being of our patients and their health care team
+          will always be our priority, so we follow the best practices for
+          cleanliness.
         </Typography>
-      </div>
+      </Box>
+
       <Container>
         <Stack className='navbar' direction="row" alignItems="center" justifyContent="space-between">
           <Box>
