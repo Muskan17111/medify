@@ -36,11 +36,13 @@ export default function Home() {
         </Container>
       </Box>
 
-      <Offers />
+      <Offers type="offer" />
 
   
 
       < BlogNews />
+      
+      <Offers type="doctor" />
 
  
     </Box>
