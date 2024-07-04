@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Select, MenuItem, Button, InputAdornment, Box } from '@mui/material';
+import { Select, MenuItem, InputAdornment, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import "./searchdoctor.css";
-import MenuIcon from './iconcard';
-
+import CustomButton from '../button/button.js';
+import { useNavigate } from 'react-router-dom';
 
 const SearchHospital = () => {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
   const [selectedState, setSelectedState] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
- 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchStates = async () => {
       try {
@@ -42,8 +42,6 @@ const SearchHospital = () => {
     fetchCities();
   }, [selectedState]);
 
- 
-
   const handleChangeState = (event) => {
     setSelectedState(event.target.value);
     setSelectedCity('');
@@ -55,7 +53,9 @@ const SearchHospital = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    if (selectedState && selectedCity) {
+      navigate(`/search?state=${selectedState}&city=${selectedCity}`);
+    }
   };
 
   return (
@@ -64,76 +64,64 @@ const SearchHospital = () => {
       component="form"
       onSubmit={handleSubmit}
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 2,
+        display: "flex",
+        gap: 4,
+        justifyContent: "space-between",
+        flexDirection: { xs: "column", md: "row" },
       }}
     >
-    <div className='selector'>
-      <Select
-        displayEmpty
-        id="state"
-        value={selectedState}
-        onChange={handleChangeState}
-        startAdornment={
-          <InputAdornment position="start">
-            <SearchIcon />
-          </InputAdornment>
-        }
-        required
+        <Select
+          displayEmpty
+          id="state"
+          value={selectedState}
+          onChange={handleChangeState}
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          }
+          required
+          sx={{ minWidth: 200, width: "100%" }}
+        >
+          <MenuItem disabled value="">
+            State
+          </MenuItem>
+          {states.map((state) => (
+            <MenuItem key={state} value={state}>
+              {state}
+            </MenuItem>
+          ))}
+        </Select>
+
+        <Select
+          displayEmpty
+          id="city"
+          value={selectedCity}
+          onChange={handleChangeCity}
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          }
+          required
+          sx={{ minWidth: 200, width: "100%" }}
+          disabled={!selectedState}
+        >
+          <MenuItem disabled value="">
+            City
+          </MenuItem>
+          {cities.map((city) => (
+            <MenuItem key={city} value={city}>
+              {city}
+            </MenuItem>
+          ))}
+        </Select>
+
+        <CustomButton type="submit" text="Search" sx={{ py: "15px", px: 8, flexShrink: 0 }} startIcon={<SearchIcon />} />
       
-      >
-        <MenuItem disabled value="">
-          State
-        </MenuItem>
-        {states.map((state) => (
-          <MenuItem key={state} value={state}>
-            {state}
-          </MenuItem>
-        ))}
-      </Select>
-
-      <Select
-        displayEmpty
-        id="city"
-        value={selectedCity}
-        onChange={handleChangeCity}
-        startAdornment={
-          <InputAdornment position="start">
-            <SearchIcon />
-          </InputAdornment>
-        }
-        required
-       
-        disabled={!selectedState}
-      >
-        <MenuItem disabled value="">
-          City
-        </MenuItem>
-        {cities.map((city) => (
-          <MenuItem key={city} value={city}>
-            {city}
-          </MenuItem>
-        ))}
-      </Select>
-
-      <Button
-        type="submit"
-        variant="contained"
-        size="large"
-        startIcon={<SearchIcon />}
-        sx={{ mt: 2 }}
-        id="search"
-      >
-        Search
-      </Button>
-    </div>
-    <div>
-    <MenuIcon/>
-    </div>
-
     </Box>
   );
 };
 
 export default SearchHospital;
+

@@ -9,8 +9,22 @@ background-color:  #2AA7FF;
 padding: 0.5rem 1.5rem;
 border-radius: 10px;
 position: relative;   
-height: 40px; 
 font-weight: 600;
 font-size: 16px;
 line-height: 25px;
 }
+    .custom-button:hover {
+    background-color: #1565c0;
+  }
+  
+  .button-content {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
+  .button-icon {
+    display: flex;
+    align-items: center;
+  }
+  

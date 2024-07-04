@@ -1,9 +1,10 @@
 import { Container, Box, Stack } from "@mui/material";
 import SearchHospital from "../component/findcenter/searchdoctor";
-import  BlogNews from "../component/blog/blog";
-import Offers from "../component/pagination/offer";
+import Swip from "../component/pagination/swip";
 import NavBar from "../component/navbar/navbar";
 import Hero from "../component/herosection/herosection";
+import MenuIcon from "../component/Icon/MenuIcon";
+
 
 
 export default function Home() {
@@ -25,26 +26,23 @@ export default function Home() {
             mt={{ xs: -2, md: 0, lg: -6, xl: -10 }}
             position="relative"
             zIndex={99}
-            bgcolor="#fff"
+            bgcolor="white"
             borderRadius="15px"
-            spacing={10}
+            
             boxShadow="0 0 12px rgba(0,0,0,0.1)"
           >
             <SearchHospital />
-          
+             <MenuIcon type="menu"/>
           </Stack>
         </Container>
       </Box>
+      <Swip type="offer" />
 
-      <Offers type="offer" />
+      <MenuIcon type="specialization"/>
 
-  
+      <Swip type="doctor" />
 
-      < BlogNews />
-      
-      <Offers type="doctor" />
-
- 
+      <MenuIcon type="blog"/>
     </Box>
   );
 }

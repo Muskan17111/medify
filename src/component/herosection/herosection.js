@@ -18,17 +18,17 @@ const Hero = () => {
       <Typography variant='h3' component='h1'>Skip the travel! Find Online</Typography>
        <Typography variant='h1' component='h1' mb={1}>Medical <span style={{ color: '#2AA7FF' }}>Centers</span></Typography>
           <Typography color="#5C6169" fontSize={{ md: 20 }} mb={3}>
-                            Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.
-                        </Typography>
+               Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.
+              </Typography>
         <Box className="input" mt={4} >
         <CustomButton variant='contained' color='primary' text="Find Center" />
         </Box>
       </Box>
       
         <Box
-                        component={'img'}
-                        src={heroImage}
-                        width={{ xs: 1, md: "50%" }}
+        component={'img'}
+        src={heroImage}
+        width={{ xs: 1, md: "50%" }}
                     />
       
     </Box>

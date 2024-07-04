@@ -1,19 +1,19 @@
 import React from 'react';
-import { Box, Container , Typography} from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination , Autoplay,} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import offer1 from '../../assests/offer.svg';
-import offer2 from '../../assests/offer2.svg';
-import './offer.css';
+import offer1 from '../../assests/offer.png';
+import offer2 from '../../assests/offer2.png';
+import './swip.css';
 import doctor1 from '../../assests/Our-Medical-Specialist/neurologist.svg';
 import doctor2 from '../../assests/Our-Medical-Specialist/orthopadic.svg';
 import doctor3 from '../../assests/Our-Medical-Specialist/medicine.svg';
 import doctor4 from '../../assests/Our-Medical-Specialist/neurologist.svg';
 import doctor5 from '../../assests/Our-Medical-Specialist/medicine.svg';
 
-const Offers = ({ type }) => {
+const Swip = ({ type }) => {
   const offers = [offer1, offer2, offer1, offer2];
   const doctors = [doctor1, doctor2, doctor3, doctor4, doctor5, doctor1, doctor2, doctor3, doctor4, doctor5];
 
@@ -29,10 +29,7 @@ const Offers = ({ type }) => {
               centeredSlides={true}
               pagination={{ clickable: true }}
               modules={[ Pagination]}
-              breakpoints={{
-                767: { slidesPerView: 3 },
-              }}
-            >
+              breakpoints={{767: { slidesPerView: 3 }}}>
               {offers.map((offer, index) => (
                 <SwiperSlide key={index}>
                   <Box component={'img'} src={offer} alt={`Offer ${index + 1}`} className="offer-image" />
@@ -46,31 +43,20 @@ const Offers = ({ type }) => {
   } else if (type === 'doctor') {
     return (
       <div className="doctor">
-        <Box py={4}>
-        <Typography variant="h2" textAlign='center' mb={3} px={2}>
-                Our Medical Specialist
-            </Typography>
+             <div className='headline'>
+            Our Medical Specialist
+          </div>
+        <Box >          
           <Container maxWidth='xl'>
-            <Swiper
+       <Swiper
         slidesPerView={2}
         spaceBetween={20}
         loop={true}
         centeredSlides={true}
-        autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-        }}
+        autoplay={{delay: 3000, disableOnInteraction: false,}}
         modules={[Autoplay, Pagination]}
-        pagination={{
-            clickable: true
-        }}
-        breakpoints={
-            {
-                767: {
-                    slidesPerView: 4
-                }
-            }
-        }
+        pagination={{clickable: true}}
+        breakpoints={{767: {slidesPerView: 4}}}
             >
               {doctors.map((doctor, index) => (
                 <SwiperSlide key={index}>
@@ -85,7 +71,7 @@ const Offers = ({ type }) => {
   }
 };
 
-export default Offers;
+export default Swip;
 
 
 
