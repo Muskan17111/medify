@@ -4,23 +4,17 @@ import Swip from "../component/pagination/swip";
 import NavBar from "../component/navbar/navbar";
 import Hero from "../component/herosection/herosection";
 import MenuIcon from "../component/Icon/MenuIcon";
+import OurFamilies from "../component/ourfamilies/ourfamilies"; 
+import  PatientCaring from "../component/paitentcare/paitentcare";
 
 
-
-export default function Home() {
+ function Home(){
   return (
     <Box>
-      <Box
-        sx={{
-          background:
-            "linear-gradient(#E7F0FF , rgba(232, 241, 255, 0.47) 90%, #fff 10%)",
-        }}
-        mb={4}
-      >
+      <Box sx={{background:"linear-gradient(#E7F0FF , rgba(232, 241, 255, 0.47) 90%, #fff 10%)",}}mb={4}>
         <NavBar />
         <Container maxWidth="xl">
           <Hero/>
-        
           <Stack
             p={{ xs: 2.5, md: 8 }}
             mt={{ xs: -2, md: 0, lg: -6, xl: -10 }}
@@ -28,21 +22,22 @@ export default function Home() {
             zIndex={99}
             bgcolor="white"
             borderRadius="15px"
-            
-            boxShadow="0 0 12px rgba(0,0,0,0.1)"
-          >
+            boxShadow="0 0 12px rgba(0,0,0,0.1)">
             <SearchHospital />
              <MenuIcon type="menu"/>
           </Stack>
         </Container>
       </Box>
       <Swip type="offer" />
-
       <MenuIcon type="specialization"/>
-
       <Swip type="doctor" />
-
+      <PatientCaring/>
+      
       <MenuIcon type="blog"/>
+      <OurFamilies/>
+      
+     
     </Box>
   );
 }
+export default Home;

@@ -4,7 +4,6 @@ import labs from '../../assests/labs.svg';
 import hospitals from '../../assests/hospitals.svg';
 import medical from '../../assests/medical.svg';
 import ambulance from '../../assests/ambulance.svg';
-import "../findcenter/searchdoctor.css";
 import { Grid, Box, Typography } from '@mui/material';
 import dentistry from '../../assests/specialisation/dentistry.svg';
 import primarycare from '../../assests/specialisation/primarycare.svg';
@@ -15,13 +14,14 @@ import psychology from '../../assests/specialisation/piscology.svg';
 import laboratory from '../../assests/specialisation/laboratory.svg';
 import xray from '../../assests/specialisation/xray.svg';
 import CustomButton from '../button/button';
-import blogIcon from './blogcard';
+import BlogIcon from './blogcard';
+import "../findcenter/searchdoctor.css";
 
 function MenuIcon({ type }) {
   const menuIcons = [doctors, labs, hospitals, medical, ambulance];
   const specializationIcons = [dentistry, primarycare, cardiology, MRI, bloodtest, psychology, laboratory, xray];
-  const blogIcons = [blogIcon(), blogIcon(), blogIcon()]; 
-  
+  const blogs =[BlogIcon, BlogIcon, BlogIcon]
+
   return (
     <div>
       {type === 'menu' && (
@@ -50,30 +50,26 @@ function MenuIcon({ type }) {
                 <Box component="img" src={icon} className="offer-image" />
               </Grid>
             ))}
-            <Grid item xs={12} md={12}>
               <CustomButton text="View All" />
-            </Grid>
           </Grid>
         </>
       )}
 
       {type === 'blog' && (
-        <Box className='blog' bgcolor={'white'} >
-          <Typography color='primary.main' fontWeight={600} textAlign='center'>
-               Blog & News
-           </Typography>
-                <div  className="headline" textAlign='center' variant='h2' mb={2}>
-                    Read Our Latest News
-                </div>
-          <Grid container className="wrap" columnSpacing={{ xs: 1, md: 2 }}>
-            {blogIcons.map((icon, index) => (
-              <Grid item xs={6} md={3} key={index}>
-                {icon}
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-      )}
+      <Box bgcolor={'white'}>
+     <Typography color='primary.main' fontWeight={600} textAlign='center'>
+     Blog & News
+     </Typography>
+    <div className='headline'>
+    Read Our Latest News
+    </div>
+    <Grid container className="wrap" columnSpacing={{ xs: 1, md: 2 }}>
+    {blogs.map((_, index) => (
+    <Grid item xs={12} md={3} key={index}>
+    <BlogIcon />
+    </Grid>))}
+    </Grid>
+    </Box>)}
     </div>
   );
 }

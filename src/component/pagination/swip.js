@@ -1,21 +1,33 @@
 import React from 'react';
-import { Box, Container } from '@mui/material';
+import { Box, Container  } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination , Autoplay,} from 'swiper/modules';
+import { Pagination, Autoplay} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import offer1 from '../../assests/offer.png';
 import offer2 from '../../assests/offer2.png';
+import img1 from '../../assests/Our-Medical-Specialist/image1.png';
+import img2 from '../../assests/Our-Medical-Specialist/image2.png';
+import img3 from '../../assests/Our-Medical-Specialist/image3.png';
+import img4 from '../../assests/Our-Medical-Specialist/image4.png';
+import img5 from '../../assests/Our-Medical-Specialist/image5.png';
+import SpecialistCard from './specialist.js';
 import './swip.css';
-import doctor1 from '../../assests/Our-Medical-Specialist/neurologist.svg';
-import doctor2 from '../../assests/Our-Medical-Specialist/orthopadic.svg';
-import doctor3 from '../../assests/Our-Medical-Specialist/medicine.svg';
-import doctor4 from '../../assests/Our-Medical-Specialist/neurologist.svg';
-import doctor5 from '../../assests/Our-Medical-Specialist/medicine.svg';
 
 const Swip = ({ type }) => {
   const offers = [offer1, offer2, offer1, offer2];
-  const doctors = [doctor1, doctor2, doctor3, doctor4, doctor5, doctor1, doctor2, doctor3, doctor4, doctor5];
+  const doctors = [
+    { img: img1, title: 'Dr. Lesley Hull', designation: 'Medicine' },
+    { img: img2, title: 'Dr. Ahmad Khan', designation: 'Neurologist' },
+    { img: img3, title: 'Dr. Heena Sachdeva', designation: 'Orthopadics' },
+    { img: img4, title: 'Dr. Ankur Sharma', designation: 'Medicine' },
+    { img: img5, title: 'Dr. Ahmad Stevens', designation: 'Neurologist' },
+    { img: img1, title: 'Dr. Lesley Hull', designation: 'Medicine' },
+    { img: img2, title: 'Dr. Ahmad Khan', designation: 'Neurologist' },
+    { img: img3, title: 'Dr. Heena Sachdeva', designation: 'Orthopadics' },
+    { img: img4, title: 'Dr. Ankur Sharma', designation: 'Medicine' },
+    { img: img5, title: 'Dr. Ahmad Stevens', designation: 'Neurologist' },
+  ];
 
   if (type === 'offer') {
     return (
@@ -28,8 +40,9 @@ const Swip = ({ type }) => {
               loop={true}
               centeredSlides={true}
               pagination={{ clickable: true }}
-              modules={[ Pagination]}
-              breakpoints={{767: { slidesPerView: 3 }}}>
+              modules={[Pagination]}
+              breakpoints={{ 767: { slidesPerView: 3 } }}
+            >
               {offers.map((offer, index) => (
                 <SwiperSlide key={index}>
                   <Box component={'img'} src={offer} alt={`Offer ${index + 1}`} className="offer-image" />
@@ -43,24 +56,28 @@ const Swip = ({ type }) => {
   } else if (type === 'doctor') {
     return (
       <div className="doctor">
-             <div className='headline'>
-            Our Medical Specialist
-          </div>
-        <Box >          
+        <div className='headline' mb={"120"}>
+          Our Medical Specialist
+        </div>
+        <Box>
           <Container maxWidth='xl'>
-       <Swiper
-        slidesPerView={2}
-        spaceBetween={20}
-        loop={true}
-        centeredSlides={true}
-        autoplay={{delay: 3000, disableOnInteraction: false,}}
-        modules={[Autoplay, Pagination]}
-        pagination={{clickable: true}}
-        breakpoints={{767: {slidesPerView: 4}}}
+            <Swiper
+              slidesPerView={2}
+              spaceBetween={20}
+              loop={true}
+              centeredSlides={true}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              modules={[Autoplay, Pagination]}
+              pagination={{ clickable: true }}
+              breakpoints={{ 767: { slidesPerView: 4 } }}
             >
               {doctors.map((doctor, index) => (
                 <SwiperSlide key={index}>
-                  <Box component={'img'} src={doctor} alt={`Doctor ${index + 1}`} className="offer-image" />
+                  <SpecialistCard
+                    img={doctor.img}
+                    title={doctor.title}
+                    designation={doctor.designation}
+                  />
                 </SwiperSlide>
               ))}
             </Swiper>

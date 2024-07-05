@@ -1,13 +1,13 @@
 import React from 'react';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography} from '@mui/material';
 import featured from '../../assests/blog.png';
 import person from '../../assests/blog1.png';
 
-export default function BlogIcon() {
+export default function blogcard() {
   return (
-    <Box bgcolor={'white'} border='1px solid rgba(0,0,0,0.1)' borderRadius={2}>
-    <Box component='img' src={featured} width={1}/>
-      <Box p={2}>
+    <Box border='1px solid rgba(0,0,0,0.1)' borderRadius={2}>
+    <Box component='img'  src={featured} width={300} height={300} sx={{ objectFit: 'cover' }} />
+        <Box p={2}>
         <Typography color='#77829D' fontWeight={500} mb={1} fontSize={{ xs: 12, md: 16 }}>
           Medical | March 31, 2022
         </Typography>
@@ -22,5 +22,6 @@ export default function BlogIcon() {
         </Stack>
       </Box>
     </Box>
+
   );
 }
